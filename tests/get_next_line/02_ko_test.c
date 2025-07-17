@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   02_ko_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
+/*   By: mhasoneh <mhasoneh@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:11:32 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/17 19:17:07 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/17 19:50:58 by mhasoneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "../libft/includes/libft.h"
 
-int strlen_null_test(void)
+int	strlen_null_test(void)
 {
-    if (ft_strlen("") == 1)
-        return (0);
-    return (-1);
+	if (ft_strlen("") == 1)
+		return (0);
+	return (-1);
 }

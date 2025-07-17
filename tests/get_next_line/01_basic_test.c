@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
+/*   By: mhasoneh <mhasoneh@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:11:32 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/17 19:17:09 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/17 20:13:40 by mhasoneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "../../includes/libunit.h"
 
-int strlen_basic_test(void)
+int	strlen_basic_test(void)
 {
-    if (ft_strlen("1234") == 4)
-        return (0);
-    return (-1);
+	if (ft_strlen("1234") == 4)
+		return (0);
+	return (-1);
 }
