@@ -1,8 +1,8 @@
 CC=cc
 LIBFT_DIR = ./libft
-OBJS_DIR = ./objs
-SRCS_DIR = ./srcs
-CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I./includes
+OBJS_DIR = ../framework/objs
+SRCS_DIR = ./framework/srcs
+CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I./framework/includes
 LIBUNIT_CORE_SRCS = launch_tests.c load_test.c
 LIBUNIT_CORE_OBJS := $(LIBUNIT_CORE_SRCS:.c=.o)
 LIBUNIT_CORE_OBJS := $(addprefix objs/, $(LIBUNIT_CORE_OBJS))

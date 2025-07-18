@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libunit.h"
-#include "../libft/includes/libft.h"
+#include <libunit.h>
+#include <libft.h>
 
 int	load_test(t_list **lst, char *test_name, int (*test_func)(void))
 {

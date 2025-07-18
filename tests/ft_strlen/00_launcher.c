@@ -19,8 +19,8 @@ int	ft_strlen_launcher(void)
 	int		res;
 
     tests_lst = 0;
-    load_test(&tests_lst, "Basic test", &ft_strlen_basic_test);
-    load_test(&tests_lst, "KO test", &ft_strlen_empty_test);
+    load_test(&tests_lst, "Basic Test", &ft_strlen_basic_test);
+    load_test(&tests_lst, "Empty Test", &ft_strlen_empty_test);
     res = launch_tests(tests_lst);
     return (res);
 }

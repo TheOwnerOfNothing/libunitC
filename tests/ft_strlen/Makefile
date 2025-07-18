@@ -1,7 +1,7 @@
 CC=cc
 LIBFT_DIR = ../../libft
 OBJS_DIR = ../../objs
-CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I../../includes
+CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I../../framework/includes
 SRCS = 00_launcher.c 01_basic_test.c 02_empty_test.c
 OBJS = $(SRCS:.c=.o)
 OBJS := $(addprefix ../../objs/ft_strlen_,$(OBJS))
