@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 18:57:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/18 23:22:39 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/18 23:43:54 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ typedef struct s_test_data
 	int		(*test_func)(void);
 }	t_test_data;
 
-int load_test(t_list **lst, char *test_name, int (* test_func)(void));
+int	load_test(t_list **lst, char *test_name, int (*test_func)(void));
 int	launch_tests(char *func_name, t_list *test_lst);
-int ft_strlen_basic_test(void);
-int ft_strlen_empty_test(void);
-int ft_strlen_launcher(void);
+int	ft_strlen_basic_test(void);
+int	ft_strlen_empty_test(void);
+int	ft_strlen_launcher(void);
 
 #endif

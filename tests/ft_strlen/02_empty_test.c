@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_success_test.c                                  :+:      :+:    :+:   */
+/*   02_empty_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhasoneh <mhasoneh@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:11:32 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/18 18:26:49 by mhasoneh         ###   ########.fr       */
+/*   Updated: 2025/07/18 23:26:32 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libunit.h>
 
-int ft_strlen_empty_test(void)
+int	ft_strlen_empty_test(void)
 {
-    if (!ft_strlen(""))
-        return (0);
-    return (-1);
+	if (!ft_strlen(""))
+		return (0);
+	return (-1);
 }

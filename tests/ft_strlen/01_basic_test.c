@@ -6,15 +6,15 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:11:32 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/18 23:20:10 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/18 23:26:25 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libunit.h>
 
-int ft_strlen_basic_test(void)
+int	ft_strlen_basic_test(void)
 {
-    if (ft_strlen("1234") == 6)
-        return (0);
-    return (-1);
+	if (ft_strlen("1234") == 4)
+		return (0);
+	return (-1);
 }
