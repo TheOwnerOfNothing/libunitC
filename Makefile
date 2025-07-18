@@ -36,4 +36,11 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+clean:
+	rm -f $(LIBUNIT_OBJS)
+
+fclean: clean
+	rm -f $(LIBUNIT)
+	rm -f $(TESTER)
+
 .PHONY: all test
