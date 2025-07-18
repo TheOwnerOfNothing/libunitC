@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   launch_tests.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhasoneh <mhasoneh@student.42amman.com>    +#+  +:+       +#+        */
+/*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:18:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/18 18:42:52 by mhasoneh         ###   ########.fr       */
+/*   Updated: 2025/07/18 23:21:26 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 void    child_func(t_list *test_lst)
 {
     t_list  *node_prev;
+    int     status;
 
-    ((t_test_data *)test_lst->content)->test_func();
+    status = ((t_test_data *)test_lst->content)->test_func();
     while (test_lst)
     {
         node_prev = test_lst;
         test_lst = test_lst->next;
         ft_lstdelone(node_prev, free);
     }
-    exit(EXIT_SUCCESS);
+    exit(status);
 }
 
 int	start_test(t_list *test_lst)
@@ -52,7 +53,7 @@ void    print_test_result(char *func_name,
 
     if (!child_ret)
         msg = "OK";
-    else if (child_ret == -1)
+    else if (child_ret == 255)
         msg = "KO";
     else if (child_ret == SIGSEGV)
         msg = "SIGSEGV";
