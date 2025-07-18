@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:18:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/18 23:43:29 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 02:11:43 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,7 @@ int	launch_tests(char *func_name, t_list *test_lst)
 		tests_count++;
 	}
 	ft_printf("Tests Passed: %lu/%lu\n", tests_count, success_tests);
+	if (success_tests != tests_count)
+		return (-1);
 	return (0);
 }
