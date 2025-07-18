@@ -27,10 +27,13 @@ $(OBJS_DIR)/%.o: $(FRAMEWORK_SRCS_DIR)/%.c
 	mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
+test:
+	$(MAKE) -C ../../ test ARG=ft_strlen
+
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(LIBUNIT)
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean test

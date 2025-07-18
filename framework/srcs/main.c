@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 23:19:02 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/18 23:26:40 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 01:21:45 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int ac, char **av)
 {
 	(void)ac;
 	(void)av;
+	ft_printf("%s\n", av[1]);
 	ft_strlen_launcher();
 	return (0);
 }
