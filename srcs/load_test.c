@@ -29,6 +29,6 @@ int load_test(t_list **lst, char *test_name, int (* test_func)(void))
 		free(test_data);
 		return (0);
 	}
-	ft_lstadd_back(lst, (void *)test_data);
+	ft_lstadd_back(lst, node);
 	return (1);
 }

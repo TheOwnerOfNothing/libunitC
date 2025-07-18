@@ -27,6 +27,7 @@ typedef struct s_test_data
 int load_test(t_list **lst, char *test_name, int (* test_func)(void));
 int launch_tests(t_list *test_lst);
 int strlen_basic_test(void);
-int strlen_null_test(void);
+int strlen_empty_test(void);
+int gnl_launcher(void);
 
 #endif

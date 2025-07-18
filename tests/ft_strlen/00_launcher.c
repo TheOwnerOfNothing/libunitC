@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ko_test.c                                       :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 19:11:32 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/17 19:17:07 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/07/17 18:44:27 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/07/17 19:24:09 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
+#include <libunit.h>
 
-int strlen_null_test(void)
+int gnl_launcher(void)
 {
-    if (ft_strlen("") == 1)
-        return (0);
-    return (-1);
+    t_list  *tests_lst;
+    int     res;
+
+    tests_lst = 0;
+    load_test(&tests_lst, "Basic test", &strlen_basic_test);
+    load_test(&tests_lst, "KO test", &strlen_empty_test);
+    res = launch_tests(tests_lst);
+    return (res);
 }

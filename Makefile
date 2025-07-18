@@ -1,23 +1,34 @@
 CC=cc
 LIBFT_DIR = ./libft
-UNITLIBS_DIR = ./unit_libs
 OBJS_DIR = ./objs
 SRCS_DIR = ./srcs
-CFLAGS = -Wall -Wextra -Werror -g -I$(LIBFT_DIR)/includes -I./includes
-SRCS = $(addprefix $(SRCS_DIR)/, launch_tests.c load_test.c main.c)
-OBJS = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o,$(SRCS))
-NAME = nothing-tester
+CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I./includes
+LIBUNIT_CORE_SRCS = launch_tests.c load_test.c
+LIBUNIT_CORE_OBJS := $(LIBUNIT_CORE_SRCS:.c=.o)
+LIBUNIT_CORE_OBJS := $(addprefix objs/, $(LIBUNIT_CORE_OBJS))
+LIBUNIT_OBJS = gnl_00_launcher.o gnl_01_basic_test.o gnl_02_empty_test.o
+LIBUNIT_OBJS := $(addprefix objs/, $(LIBUNIT_OBJS))
+LIBUNIT_OBJS += $(LIBUNIT_CORE_OBJS)
+LIBUNIT = libunit.a
+LIBUNIT_FINGERPRINT = .libunit_fingerprint
+TESTER = tester
+LIBFT = ./libft/libft.a
 
-all: libft $(NAME)
+all: $(LIBFT)
+	$(MAKE) -C ./tests/get_next_line
+	$(MAKE) $(LIBUNIT)
 
-libft:
+$(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -L$(UNITLIBS_DIR) -lgnlunit -o $(NAME)
+$(LIBUNIT): $(LIBUNIT_FINGERPRINT) $(LIBUNIT_CORE_OBJS)
+	ar rcs $@ $(LIBUNIT_OBJS)
+
+$(TESTER): $(LIBFT) $(LIBUNIT)
+	$(CC) $(CFLAGS) srcs/main.c -L. -lunit -L$(LIBFT_DIR) -lft -o $@
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-.PHONY: all libft
+.PHONY: all
