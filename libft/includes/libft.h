@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 10:19:58 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/01/07 00:26:39 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/03/23 23:23:45 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 size_t			ft_lstsize(t_list *lst);
 size_t			ft_strncpy(char *dst, const char *src, size_t size);
+size_t			ft_arrlen(void **arr);
+size_t			ft_getchr_count(char *str, char c);
 int				ft_atoi(const char *str);
 int				ft_isalnum(int c);
+int				ft_isspace(char c);
 int				ft_isalpha(int c);
 int				ft_isascii(int c);
 int				ft_isdigit(int c);
@@ -71,6 +74,7 @@ void			ft_striteri(char *s, void (*f)(size_t, char *));
 void			ft_lstadd_front(t_list **lst, t_list *new);
 void			ft_lstadd_back(t_list **lst, t_list *new);
 void			free_array(void **arr);
+void			ft_move_lst(t_list *node, t_list **new_lst);
 void			*ft_bzero(void *src, size_t size);
 void			*ft_calloc(size_t nitems, size_t size);
 void			*ft_memchr(const void *src, int c, size_t n);
@@ -78,7 +82,9 @@ void			*ft_memcpy(void *dest, void *src, size_t size);
 void			*ft_memmove(void *dest, void *src, size_t n);
 void			*ft_memset(void *src, int c, size_t size);
 char			*gnl_strjoin(char *s1, char *s2, int n);
-char			*get_next_line(int fd);
+char			*get_next_line(int fd, int free_mode, int *is_err);
+void			gnl_handle(int *is_err, char *res,
+					char *buffer, int mode);
 char			*ft_strtok(char *s, char *delimiter);
 char			*ft_strchr(const char *str, int c);
 char			*ft_strdup(const char *str);
@@ -86,8 +92,11 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strmapi(char const *s, char (*f)(size_t, char));
 char			**ft_split(const char *s, char c);
 t_list			*ft_lstnew(void *content);
+t_list			*ft_lstnew_protect(void *content, void (*del)(void *));
 t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+float			ft_atof(const char *str);
+float			ft_fabs(float val);
 
 #endif

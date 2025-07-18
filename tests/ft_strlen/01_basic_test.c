@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <libunit.h>
-#include <libft.h>
 
 int ft_strlen_basic_test(void)
 {

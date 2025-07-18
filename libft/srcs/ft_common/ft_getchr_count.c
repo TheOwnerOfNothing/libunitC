@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_getchr_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 15:45:00 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/04/06 10:23:55 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/03/09 22:52:44 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/03/09 22:52:59 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_abs(int x)
+size_t	ft_getchr_count(char *str, char c)
 {
-	if (x < 0)
-	{
-		if (x == INT_MIN)
-			return (x);
-		x *= -1;
-	}
-	return (x);
-}
+	size_t	res;
 
-float	ft_fabs(float val)
-{
-	if (val < 0)
-		return (val * -1);
-	return (val);
+	res = 0;
+	while (*str)
+	{
+		if (*str == c)
+			res++;
+		str++;
+	}
+	return (res);
 }

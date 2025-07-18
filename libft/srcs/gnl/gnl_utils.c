@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   gnl_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abueskander <abueskander@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 15:13:09 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/03/05 23:00:10 by abueskander      ###   ########.fr       */
+/*   Created: 2024/11/25 11:47:43 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/03/10 15:17:52 by abueskander      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t size)
+char	*gnl_strjoin(char *s1, char *s2, int n)
 {
-	size_t	i;
-	size_t	len;
+	char	*res;
 
-	if (!s1)
-		return (-1);
-	if (ft_strlen(s1) > ft_strlen(s2))
-		len = ft_strlen(s1);
-	else
-		len = ft_strlen(s2);
-	i = 0;
-	while (i < size && i < len)
-	{
-		if ((unsigned char)s1[i] != (unsigned char)s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
-	}
-	return (0);
+	res = ft_strjoin(s1, s2);
+	if (n >= 1)
+		free(s1);
+	if (n >= 2)
+		free(s2);
+	return (res);
+}
+
+void	gnl_handle(int *is_err, char *res, char *buffer, int mode)
+{
+	free(buffer);
+	buffer = 0;
+	free(res);
+	if (mode && *is_err)
+		*is_err = 1;
 }

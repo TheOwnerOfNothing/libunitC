@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_lstnew_protect.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 15:45:00 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/04/06 10:23:55 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/03/09 20:35:58 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/03/09 20:39:31 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int	ft_abs(int x)
+t_list	*ft_lstnew_protect(void *content, void (*del)(void *))
 {
-	if (x < 0)
-	{
-		if (x == INT_MIN)
-			return (x);
-		x *= -1;
-	}
-	return (x);
-}
+	t_list	*node;
 
-float	ft_fabs(float val)
-{
-	if (val < 0)
-		return (val * -1);
-	return (val);
+	node = ft_calloc(1, sizeof(t_list));
+	if (!node)
+	{
+		del(content);
+		return (0);
+	}
+	node->content = content;
+	return (node);
 }

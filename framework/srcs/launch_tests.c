@@ -11,83 +11,80 @@
 /* ************************************************************************** */
 
 #include <libunit.h>
-#include <libft.h>
 
-// int	launch_tests(t_list *test_lst)
-// {
-// 	pid_t	p;
-// 	int		status;
-// 	int		total_tests;
-// 	int		passed_tests;
-// 	int		result;
-// 	int		exit_code;
-// 	int		signal;
-
-// 	total_tests = 0;
-// 	passed_tests = 0;
-// 	while (test_lst)
-// 	{
-// 		total_tests++;
-// 		p = fork();
-// 		if (p < 0)
-// 		{
-// 			write(1, "fork fail", 10);
-// 			exit(1);
-// 		}
-// 		else if (p == 0)
-// 		{
-// 			result = ((t_test_data *)test_lst->content)->test_func();
-// 			exit(result);
-// 		}
-// 		else
-// 		{
-// 			wait(&status);
-// 			if (WIFEXITED(status))
-// 			{
-// 				exit_code = WEXITSTATUS(status);
-// 				if (exit_code == 0)
-// 				{
-// 					ft_printf("[%s]:[%s]:[OK]\n",
-// 						"FUNCTION_NAME",
-// 						((t_test_data *)test_lst->content)->test_name);
-// 					passed_tests++;
-// 				}
-// 				else
-// 				{
-// 					ft_printf("[%s]:[%s]:[KO]\n", "FUNCTION_NAME",
-// 						((t_test_data *)test_lst->content)->test_name);
-// 				}
-// 			}
-// 			else if (WIFSIGNALED(status))
-// 			{
-// 				signal = WTERMSIG(status);
-// 				if (signal == SIGSEGV)
-// 				{
-// 					ft_printf("[%s]:[%s]:[SIGSEGV]\n", "FUNCTION_NAME",
-// 						((t_test_data *)test_lst->content)->test_name);
-// 				}
-// 				else if (signal == SIGBUS)
-// 				{
-// 					ft_printf("[%s]:[%s]:[SIGBUS]\n", "FUNCTION_NAME",
-// 						((t_test_data *)test_lst->content)->test_name);
-// 				}
-// 			}
-// 		}
-// 		test_lst = test_lst->next;
-// 	}
-// 	ft_printf("%d/%d tests checked\n", passed_tests, total_tests);
-// 	if (passed_tests == total_tests)
-// 		return (0);
-// 	else
-// 		return (1);
-// }
-
-int	launch_tests(t_list *test_lst)
+void    child_func(t_list *test_lst)
 {
+    t_list  *node_prev;
+
+    ((t_test_data *)test_lst->content)->test_func();
     while (test_lst)
     {
-        ft_printf(((t_test_data *)test_lst->content)->test_name);
+        node_prev = test_lst;
         test_lst = test_lst->next;
+        ft_lstdelone(node_prev, free);
     }
+    exit(EXIT_SUCCESS);
+}
+
+int	start_test(t_list *test_lst)
+{
+	pid_t	pid;
+    int     wstatus;
+    
+	pid = fork();
+	if (pid == -1)
+	{
+		ft_dprintf(STDERR_FILENO, "fork() failed!");
+		return (-1);
+	}
+    if (!pid)
+        child_func(test_lst);
+    wait(&wstatus);
+    if (WIFSIGNALED(wstatus))
+        return (WTERMSIG(wstatus));
+    return (WEXITSTATUS(wstatus));
+}
+
+void    print_test_result(char *func_name,
+    int child_ret, t_test_data *test_data)
+{
+    char    *msg;
+
+    if (!child_ret)
+        msg = "OK";
+    else if (child_ret == -1)
+        msg = "KO";
+    else if (child_ret == SIGSEGV)
+        msg = "SIGSEGV";
+    else if (child_ret == SIGBUS)
+        msg = "SIGBUS";
+    else
+        msg = "UNKNOWN ERROR";
+    ft_printf("%s:%s:%s\n", func_name, test_data->test_name, msg);
+}
+
+int	launch_tests(char *func_name, t_list *test_lst)
+{
+    t_test_data *test_data;
+    t_list      *node_prev;
+	size_t		tests_count;
+    size_t      success_tests;
+    int         child_ret;
+
+	tests_count = 0;
+    success_tests = 0;
+    while (test_lst)
+    {
+        test_data = test_lst->content;
+		child_ret = start_test(test_lst);
+        print_test_result(func_name, child_ret, test_data);
+        if (!child_ret)
+            success_tests++;
+        node_prev = test_lst;
+        test_lst = test_lst->next;
+        ft_lstdelone(node_prev, free);
+		tests_count++;
+    }
+	ft_printf("Tests Passed: %lu/%lu\n", tests_count, success_tests);
     return (0);
 }

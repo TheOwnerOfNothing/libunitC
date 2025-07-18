@@ -1,6 +1,6 @@
 CC=cc
 LIBFT_DIR = ./libft
-OBJS_DIR = ../framework/objs
+OBJS_DIR = ./objs
 SRCS_DIR = ./framework/srcs
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I./framework/includes
 LIBUNIT_CORE_SRCS = launch_tests.c load_test.c
@@ -26,11 +26,11 @@ $(LIBUNIT): $(LIBUNIT_FINGERPRINT) $(LIBUNIT_CORE_OBJS)
 
 test:
 	$(MAKE) -C ./tests/ft_strlen
+	$(MAKE) $(LIBUNIT)
 	$(MAKE) $(TESTER)
 
 $(TESTER): $(LIBFT) $(LIBUNIT)
-	$(CC) $(CFLAGS) srcs/main.c -L. -L$(LIBFT_DIR) -lunit -lft -o $@
-	@./tester
+	$(CC) $(CFLAGS) framework/srcs/main.c -L. -L$(LIBFT_DIR) -lunit -lft -o $@
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	mkdir -p $(OBJS_DIR)

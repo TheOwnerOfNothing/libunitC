@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 15:45:00 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/04/06 10:23:55 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/03/05 21:52:52 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/03/05 21:53:53 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-
-int	ft_abs(int x)
+int	ft_isspace(char c)
 {
-	if (x < 0)
-	{
-		if (x == INT_MIN)
-			return (x);
-		x *= -1;
-	}
-	return (x);
-}
-
-float	ft_fabs(float val)
-{
-	if (val < 0)
-		return (val * -1);
-	return (val);
+	return ((c >= 0x9 && c <= 0xD) || c == ' ');
 }

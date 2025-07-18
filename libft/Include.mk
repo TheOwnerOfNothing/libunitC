@@ -1,7 +1,12 @@
 SRCS = \
 	srcs/ft_common/find_newline.c \
 	srcs/ft_common/ft_tolower.c \
+	srcs/ft_common/ft_atof.c \
+	srcs/ft_common/ft_isspace.c \
+	srcs/ft_common/ft_arrlen.c \
+	srcs/ft_common/ft_getchr_count.c \
 	srcs/ft_lst/ft_lstnew.c \
+	srcs/ft_lst/ft_move_lst.c \
 	srcs/ft_print/ft_printf.c \
 	srcs/ft_print/ft_dprintf.c \
 	srcs/ft_print/printf_base.c \
@@ -13,6 +18,7 @@ SRCS = \
 	srcs/ft_common/ft_abs.c \
 	srcs/ft_common/ft_toupper.c	\
 	srcs/ft_lst/ft_lstsize.c \
+	srcs/ft_lst/ft_lstnew_protect.c \
 	srcs/ft_print/ft_putchar_fd.c \
 	srcs/ft_str/ft_strchr.c \
 	srcs/ft_str/ft_strnstr.c \
@@ -48,7 +54,7 @@ SRCS = \
 	srcs/ft_lst/ft_lstiter.c \
 	srcs/ft_mem/ft_memcpy.c \
 	srcs/ft_str/ft_strlcpy.c \
-	srcs/gnl/gnl_strjoin.c \
+	srcs/gnl/gnl_utils.c \
 	srcs/ft_common/ft_isprint.c \
 	srcs/ft_lst/ft_lstlast.c \
 	srcs/ft_mem/ft_memmove.c \
