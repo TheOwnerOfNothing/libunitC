@@ -2,5 +2,5 @@
 tester
 objs/
 libunit.a
-libft/libft.a
+libft.a
 .vscode
