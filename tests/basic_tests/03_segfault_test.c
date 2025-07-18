@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   03_segfault_test.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhasoneh <mhasoneh@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:11:32 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/17 20:13:40 by mhasoneh         ###   ########.fr       */
+/*   Updated: 2025/07/18 18:39:12 by mhasoneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libunit.h"
+#include "../libft/includes/libft.h"
 
-int	strlen_basic_test(void)
+int	segfault_test(void)
 {
-	if (ft_strlen("1234") == 4)
-		return (0);
-	return (-1);
+	char	*ptr;
+
+	ptr = NULL;
+	*ptr = 'a';
+	return (0);
 }

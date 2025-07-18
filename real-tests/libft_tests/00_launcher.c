@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_ko_test.c                                       :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhasoneh <mhasoneh@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 19:11:32 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/17 19:50:58 by mhasoneh         ###   ########.fr       */
+/*   Created: 2025/07/18 18:28:00 by mhasoneh          #+#    #+#             */
+/*   Updated: 2025/07/18 18:41:00 by mhasoneh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
-
-int	strlen_null_test(void)
+int	basic_tests_launcher(void)
 {
-	if (ft_strlen("") == 1)
-		return (0);
-	return (-1);
+	t_list	*testlist;
+
+	testlist = NULL;
+	load_test(&testlist, "BASIC_TESTS", "Success test", &success_test);
+	load_test(&testlist, "BASIC_TESTS", "Failure test", &failure_test);
+	load_test(&testlist, "BASIC_TESTS", "Segfault test", &segfault_test);
+	return (launch_tests(testlist));
 }
