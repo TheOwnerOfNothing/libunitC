@@ -4,7 +4,7 @@ OBJS_DIR = ../../objs
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I../../includes
 SRCS = 00_launcher.c 01_basic_test.c 02_empty_test.c
 OBJS = $(SRCS:.c=.o)
-OBJS := $(addprefix ../../objs/gnl_,$(OBJS))
+OBJS := $(addprefix ../../objs/ft_strlen_,$(OBJS))
 FINGERPRINT = ../../.libunit_fingerprint
 
 all: $(FINGERPRINT)
@@ -12,7 +12,7 @@ all: $(FINGERPRINT)
 $(FINGERPRINT): $(OBJS)
 	touch $(FINGERPRINT)
 
-$(OBJS_DIR)/gnl_%.o: %.c
+$(OBJS_DIR)/ft_strlen_%.o: %.c
 	mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 

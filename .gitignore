@@ -2,3 +2,4 @@
 tester
 objs/
 libunit.a
+libft/libft.a
