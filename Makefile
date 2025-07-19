@@ -18,7 +18,11 @@ LIBUNIT_OBJS = ft_strlen_00_launcher.o \
 	real_tests_01_ok_test.o \
 	real_tests_02_ko_test.o \
 	real_tests_03_sigsegv_test.o \
-	real_tests_04_sigbus_test.o
+	real_tests_04_sigbus_test.o \
+	real_tests_05_sigfpe_test.o \
+	real_tests_06_sigill_test.o \
+	real_tests_07_sigabrt_test.o \
+	real_tests_08_sigpipe_test.o
 LIBUNIT_OBJS := $(addprefix objs/, $(LIBUNIT_OBJS))
 LIBUNIT_OBJS += $(LIBUNIT_CORE_OBJS)
 LIBUNIT = libunit.a

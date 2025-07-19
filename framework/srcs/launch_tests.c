@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:18:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 13:05:28 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 14:40:00 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,16 @@ void	print_test_result(char *func_name,
 		msg = "\e[33mSIGSEGV\e[00m";
 	else if (child_ret == SIGBUS)
 		msg = "\e[33mSIGBUS\e[00m";
+	else if (child_ret == SIGFPE)
+		msg = "\e[33mSIGFPE\e[00m";
+	else if (child_ret == SIGILL)
+		msg = "\e[33mSIGILL\e[00m";
+	else if (child_ret == SIGABRT)
+		msg = "\e[33mSIGABRT\e[00m";
+	else if (child_ret == SIGPIPE)
+		msg = "\e[33mSIGPIPE\e[00m";
 	else
-		msg = "\e[31UNKNOWN ERROR\e[00m";
+		msg = "\e[31mUNKNOWN ERROR\e[00m";
 	ft_printf("%s:%s:%s\n", func_name, test_data->test_name, msg);
 }
 

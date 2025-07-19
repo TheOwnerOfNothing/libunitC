@@ -2,7 +2,15 @@ CC=cc
 LIBFT_DIR = ../../libft
 OBJS_DIR = ../../objs
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I../../framework/includes
-SRCS = 00_launcher.c 01_ok_test.c 02_ko_test.c 03_sigsegv_test.c 04_sigbus_test.c
+SRCS = 00_launcher.c \
+	01_ok_test.c \
+	02_ko_test.c \
+	03_sigsegv_test.c \
+	04_sigbus_test.c \
+	05_sigfpe_test.c \
+	06_sigill_test.c \
+	07_sigabrt_test.c \
+	08_sigpipe_test.c
 FRAMEWORK_SRCS = launch_tests.c load_test.c
 FRAMEWORK_SRCS_DIR = ../../framework/srcs
 OBJS = $(SRCS:.c=.o)

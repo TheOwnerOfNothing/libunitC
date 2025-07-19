@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_sigbus_test.c                                   :+:      :+:    :+:   */
+/*   08_sigpipe_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 03:15:26 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 13:21:30 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/07/19 14:35:43 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/07/19 14:40:28 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libunit.h>
 
-int	real_tests_sigbus_test(void)
+int	real_tests_sigpipe_test(void)
 {
-	char	*addr;
-	char	*new_addr;
-	int		*tmp;
-	int		val;
-
-	__asm__("pushf\n"
-			"orl $0x40000, (%rsp)\n"
-			"popf\n"
-		);
-	addr = malloc(sizeof(int));
-	new_addr = addr + 1;
-	tmp = (int *)new_addr;
-	*tmp = 42;
-	val = *tmp;
-	free(addr);
-	if (val == 42)
+    int pipefds[2];
+    
+    if (pipe(pipefds) == -1)
+        return (-1);
+    close(pipefds[0]);
+    write(pipefds[1], "42", 2);
+    close(pipefds[1]);
+	if (1)
 		return (0);
 	return (-1);
 }
