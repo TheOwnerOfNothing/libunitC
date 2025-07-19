@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 03:15:26 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 04:28:05 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 12:56:41 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int	real_tests_sigbus_test(void)
 	int		*tmp;
 	int		val;
 
-	__asm__("pushf\norl $0x40000,(%rsp)\npopf");
+	__asm__("pushf\n"
+			"orl $0x40000, (%rsp)\n"
+			"popf\n"
+		);
 	addr = malloc(sizeof(int));
 	new_addr = addr + 1;
 	tmp = (int *)new_addr;

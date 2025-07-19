@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:18:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 04:28:18 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 13:05:28 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ void	print_test_result(char *func_name,
 	char	*msg;
 
 	if (!child_ret)
-		msg = "OK";
+		msg = "\e[32mOK\e[00m";
 	else if (child_ret == 255)
-		msg = "KO";
+		msg = "\e[31mKO\e[00m";
 	else if (child_ret == SIGSEGV)
-		msg = "SIGSEGV";
+		msg = "\e[33mSIGSEGV\e[00m";
 	else if (child_ret == SIGBUS)
-		msg = "SIGBUS";
+		msg = "\e[33mSIGBUS\e[00m";
 	else
-		msg = "UNKNOWN ERROR";
+		msg = "\e[31UNKNOWN ERROR\e[00m";
 	ft_printf("%s:%s:%s\n", func_name, test_data->test_name, msg);
 }
 
