@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 18:57:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 17:52:52 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 18:31:42 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_test_data
 }	t_test_data;
 
 int	load_test(t_list **lst,
-	char *test_name, int (*test_func)(void), int verbose);
+		char *test_name, int (*test_func)(void), int verbose);
 int	launch_tests(char *func_name, t_list *test_lst);
 int	ft_strlen_basic_test(void);
 int	ft_strlen_empty_test(void);
@@ -46,5 +46,16 @@ int	ft_split_basic_test(void);
 int	ft_split_empty_test(void);
 int	ft_split_delimiters_test(void);
 int	ft_split_delimiters_space_test(void);
+int	ft_strjoin_basic_test(void);
+int	ft_strjoin_one_empty_test(void);
+int	ft_strjoin_empty_test(void);
+int	ft_strjoin_launcher(void);
+int	ft_atoi_basic_test(void);
+int	ft_atoi_zero_test(void);
+int	ft_atoi_negative_test(void);
+int	ft_atoi_max_int_test(void);
+int	ft_atoi_min_int_test(void);
+int	ft_atoi_launcher(void);
+int	ft_atoi_negative_zero_test(void);
 
 #endif

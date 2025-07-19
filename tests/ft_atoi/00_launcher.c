@@ -6,24 +6,24 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 18:44:27 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 18:32:31 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 18:30:10 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libunit.h>
 
-int	ft_split_launcher(void)
+int	ft_atoi_launcher(void)
 {
 	t_list	*tests_lst;
 	int		res;
 
 	tests_lst = 0;
-	load_test(&tests_lst, "basic split test", &ft_split_basic_test, 1);
-	load_test(&tests_lst, "empty split test", &ft_split_empty_test, 1);
-	load_test(&tests_lst,
-		"delimiters split test", &ft_split_delimiters_test, 1);
-	load_test(&tests_lst, "delimiters with space split test",
-		&ft_split_delimiters_space_test, 1);
-	res = launch_tests("ft_split", tests_lst);
+	load_test(&tests_lst, "basic test", &ft_atoi_basic_test, 1);
+	load_test(&tests_lst, "zero test", &ft_atoi_zero_test, 1);
+	load_test(&tests_lst, "negative test", &ft_atoi_negative_test, 1);
+	load_test(&tests_lst, "max int test", &ft_atoi_max_int_test, 1);
+	load_test(&tests_lst, "min int test", &ft_atoi_max_int_test, 1);
+	load_test(&tests_lst, "min int test", &ft_atoi_negative_zero_test, 1);
+	res = launch_tests("ft_atoi", tests_lst);
 	return (res);
 }

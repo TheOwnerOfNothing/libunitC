@@ -27,7 +27,18 @@ LIBUNIT_OBJS = ft_strlen_00_launcher.o \
 	ft_split_01_basic_test.o \
 	ft_split_02_empty_test.o \
 	ft_split_03_delimiters_test.o \
-	ft_split_04_delimiters_space_test.o
+	ft_split_04_delimiters_space_test.o \
+	ft_strjoin_00_launcher.o \
+	ft_strjoin_01_basic_test.o \
+	ft_strjoin_02_one_empty_test.o \
+	ft_strjoin_03_empty_test.o \
+	ft_atoi_00_launcher.o \
+	ft_atoi_01_basic_test.o \
+	ft_atoi_02_zero_test.o \
+	ft_atoi_03_negative_test.o \
+	ft_atoi_04_max_int_test.o \
+	ft_atoi_05_min_int_test.o \
+	ft_atoi_06_negative_zero_test.o
 LIBUNIT_OBJS := $(addprefix objs/, $(LIBUNIT_OBJS))
 LIBUNIT_OBJS += $(LIBUNIT_CORE_OBJS)
 LIBUNIT = libunit.a
@@ -35,9 +46,11 @@ LIBUNIT_FINGERPRINT = .libunit_fingerprint
 TESTER = tester
 LIBFT = ./libft/libft.a
 
-all: $(LIBFT)
+all:
 	$(MAKE) -C ./tests/ft_strlen
 	$(MAKE) -C ./tests/ft_split
+	$(MAKE) -C ./tests/ft_strjoin
+	$(MAKE) -C ./tests/ft_atoi
 	$(MAKE) -C ./tests/real-tests
 	$(MAKE) $(LIBUNIT)
 
@@ -50,6 +63,8 @@ $(LIBUNIT): $(LIBUNIT_FINGERPRINT) $(LIBUNIT_CORE_OBJS)
 test:
 	$(MAKE) -C ./tests/ft_strlen
 	$(MAKE) -C ./tests/ft_split
+	$(MAKE) -C ./tests/ft_strjoin
+	$(MAKE) -C ./tests/ft_atoi
 	$(MAKE) -C ./tests/real-tests
 	$(MAKE) $(LIBUNIT)
 	$(MAKE) $(TESTER)
