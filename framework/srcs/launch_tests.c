@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:18:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 17:54:38 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 18:49:27 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	child_func(t_list *test_lst)
 	t_list	*node_prev;
 	int		status;
 
+	alarm(TIMEOUT);
 	status = ((t_test_data *)test_lst->content)->test_func();
+	alarm(0);
 	while (test_lst)
 	{
 		node_prev = test_lst;
@@ -69,6 +71,8 @@ void	print_test_result(char *func_name,
 		msg = "\e[33mSIGABRT\e[00m";
 	else if (child_ret == SIGPIPE)
 		msg = "\e[33mSIGPIPE\e[00m";
+	else if (child_ret == SIGALRM)
+		msg = "\e[31mTIMEOUT\e[00m";
 	else
 		msg = "\e[31mUNKNOWN ERROR\e[00m";
 	ft_printf("%s:%s:%s\n", func_name, test_data->test_name, msg);

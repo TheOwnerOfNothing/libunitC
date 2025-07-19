@@ -6,12 +6,14 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 18:57:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 18:31:42 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 18:50:08 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
+
+# define TIMEOUT 5
 
 # include <unistd.h>
 # include <stdlib.h>

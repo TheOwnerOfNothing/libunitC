@@ -7,6 +7,7 @@ LIBFT_DIR = ./libft
 OBJS_DIR = ./objs
 SRCS_DIR = ./framework/srcs
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)/includes -I./framework/includes
+HEADERS = ./framework/includes/libunit.h
 LIBUNIT_CORE_OBJS = launch_tests.o load_test.o
 LIBUNIT_MAIN_OBJ = main.o
 LIBUNIT_CORE_OBJS := $(addprefix objs/, $(LIBUNIT_CORE_OBJS))
@@ -73,7 +74,7 @@ test:
 $(TESTER): $(LIBFT) $(LIBUNIT) $(LIBUNIT_MAIN_OBJ)
 	$(CC) $(CFLAGS) $(LIBUNIT_MAIN_OBJ) -L. -L$(LIBFT_DIR) -lunit -lft -o $@
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(HEADERS)
 	mkdir -p $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
