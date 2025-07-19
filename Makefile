@@ -58,4 +58,4 @@ fclean: clean
 	rm -f $(LIBUNIT)
 	rm -f $(TESTER)
 
-.PHONY: all test
+.PHONY: all test clean fclean
