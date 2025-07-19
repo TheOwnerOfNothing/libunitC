@@ -78,10 +78,17 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
+	$(MAKE) -C $(LIBFT_DIR) clean
 	rm -f $(LIBUNIT_OBJS) $(LIBUNIT_MAIN_OBJ)
 	rm -rf objs
 
 fclean: clean
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	rm -f ./tests/ft_strlen/libunit.a \
+		./tests/ft_strjoin/libunit.a \
+		./tests/ft_split/libunit.a \
+		./tests/ft_atoi/libunit.a \
+		./tests/real_tests/libunit.a
 	rm -f $(LIBUNIT)
 	rm -f $(TESTER)
 
