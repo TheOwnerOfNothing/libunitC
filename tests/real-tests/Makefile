@@ -7,7 +7,7 @@ SRCS := 00_launcher.c \
 	02_ko_test.c \
 	03_sigsegv_test.c \
 	04_sigbus_test.c
-SRCS_BONUS := 00_launcher.c \
+SRCS_BONUS := 00_launcher_bonus.c \
 	01_ok_test.c \
 	02_ko_test.c \
 	03_sigsegv_test.c \

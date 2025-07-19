@@ -6,12 +6,12 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 18:57:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 19:26:27 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 20:21:18 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#ifndef LIBUNIT_BONUS_H
+# define LIBUNIT_BONUS_H
 
 # define TIMEOUT 5
 
