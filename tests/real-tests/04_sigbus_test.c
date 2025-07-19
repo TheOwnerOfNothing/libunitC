@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_segsegv_test.c                                  :+:      :+:    :+:   */
+/*   04_sigbus_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 02:57:49 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 02:59:49 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/07/19 03:15:26 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/07/19 04:13:31 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libunit.h>
+#include <sys/mman.h>
+#include <fcntl.h>
 
-int	real_tests_segsegv_test(void)
+int	real_tests_sigbus_test(void)
 {
-	if (ft_strlen(0))
+	char	*addr;
+	int		*tmp;
+	int		val;
+
+	__asm__("pushf\norl $0x40000,(%rsp)\npopf");
+	addr = malloc(sizeof(int));
+	tmp = (int *)addr++;
+	*tmp = 42;
+	val = *tmp;
+	free(addr);
+	if (val == 42)
 		return (0);
 	return (-1);
 }

@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   03_sigsegv_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 02:18:58 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 03:17:17 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/07/19 02:57:49 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/07/19 03:17:08 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libunit.h>
 
-int	real_tests_launcher(void)
+int	real_tests_sigsegv_test(void)
 {
-	t_list	*tests_lst;
-	int		res;
-
-	tests_lst = 0;
-	load_test(&tests_lst, "OK test", &real_tests_ok_test);
-	load_test(&tests_lst, "KO test", &real_tests_ko_test);
-	load_test(&tests_lst, "SIGSEGV test", &real_tests_sigsegv_test);
-	load_test(&tests_lst, "SIGBUS test", &real_tests_sigbus_test);
-	res = launch_tests("real-tests", tests_lst);
-	return (res);
+	if (ft_strlen(0))
+		return (0);
+	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 18:57:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 03:09:01 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 03:17:24 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_strlen_launcher(void);
 int	real_tests_launcher(void);
 int	real_tests_ok_test(void);
 int	real_tests_ko_test(void);
-int	real_tests_segsegv_test(void);
+int	real_tests_sigsegv_test(void);
+int	real_tests_sigbus_test(void);
 
 #endif
