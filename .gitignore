@@ -4,3 +4,5 @@ objs/
 libunit.a
 libft.a
 .vscode
+tester_bonus
+libunit_bonus.a

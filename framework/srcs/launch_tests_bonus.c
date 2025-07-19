@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   launch_tests.c                                     :+:      :+:    :+:   */
+/*   launch_tests_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:18:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 19:22:20 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 19:27:45 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libunit.h>
+#include <libunit_bonus.h>
 
 void	child_func(t_list *test_lst)
 {
 	t_list	*node_prev;
 	int		status;
 
+	alarm(TIMEOUT);
 	status = ((t_test_data *)test_lst->content)->test_func();
+	alarm(0);
 	while (test_lst)
 	{
 		node_prev = test_lst;
@@ -61,6 +63,16 @@ void	print_test_result(char *func_name,
 		msg = "\e[33mSIGSEGV\e[00m";
 	else if (child_ret == SIGBUS)
 		msg = "\e[33mSIGBUS\e[00m";
+	else if (child_ret == SIGFPE)
+		msg = "\e[33mSIGFPE\e[00m";
+	else if (child_ret == SIGILL)
+		msg = "\e[33mSIGILL\e[00m";
+	else if (child_ret == SIGABRT)
+		msg = "\e[33mSIGABRT\e[00m";
+	else if (child_ret == SIGPIPE)
+		msg = "\e[33mSIGPIPE\e[00m";
+	else if (child_ret == SIGALRM)
+		msg = "\e[31mTIMEOUT\e[00m";
 	else
 		msg = "\e[31mUNKNOWN ERROR\e[00m";
 	ft_printf("%s:%s:%s\n", func_name, test_data->test_name, msg);
