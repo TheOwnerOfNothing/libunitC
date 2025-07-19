@@ -6,14 +6,15 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 14:07:38 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 14:22:42 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 16:56:25 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	real_tests_sigill_test(void)
 {
-    __asm__ volatile (".byte 0x07, 0x01");
+	__asm__ volatile (".byte 0x07, 0x01");
 	if (1)
 		return (0);
-	return (-1);
+	else
+		return (-1);
 }

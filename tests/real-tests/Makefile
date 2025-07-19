@@ -44,4 +44,6 @@ clean:
 fclean: clean
 	rm -f $(LIBUNIT)
 
-.PHONY: all clean fclean test
+re: fclean all
+
+.PHONY: all clean fclean test re

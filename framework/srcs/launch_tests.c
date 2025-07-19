@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 19:18:28 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 14:40:00 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 17:54:38 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	print_test_result(char *func_name,
 {
 	char	*msg;
 
+	if (!test_data->verbose)
+		return ;
 	if (!child_ret)
 		msg = "\e[32mOK\e[00m";
 	else if (child_ret == 255)

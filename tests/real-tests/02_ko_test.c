@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 02:56:53 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 03:00:33 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 16:56:40 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ int	real_tests_ko_test(void)
 {
 	if (ft_strlen("1234") == 5)
 		return (0);
-	return (-1);
+	else
+		return (-1);
 }

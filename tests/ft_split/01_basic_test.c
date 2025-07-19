@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_test.c                                        :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/17 18:45:57 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 17:53:01 by amsaleh          ###   ########.fr       */
+/*   Created: 2025/07/19 16:40:23 by amsaleh           #+#    #+#             */
+/*   Updated: 2025/07/19 16:53:06 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libunit.h>
 
-int	load_test(t_list **lst, char *test_name, int (*test_func)(void), int verbose)
+int	ft_split_basic_test(void)
 {
-	t_test_data	*test_data;
-	t_list		*node;
+	char	**res;
 
-	test_data = malloc(sizeof(t_test_data));
-	if (!test_data)
+	res = ft_split("HABDA 123", ' ');
+	if (!res)
+		return (-1);
+	if (ft_arrlen((void *)res) == 2 && !ft_strcmp("HABDA", res[0])
+		&& !ft_strcmp("123", res[1]))
 		return (0);
-	test_data->test_name = test_name;
-	test_data->test_func = test_func;
-	test_data->verbose = verbose;
-	node = ft_lstnew(test_data);
-	if (!node)
-	{
-		free(test_data);
-		return (0);
-	}
-	ft_lstadd_back(lst, node);
-	return (1);
+	return (-1);
 }

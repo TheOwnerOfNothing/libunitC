@@ -6,7 +6,7 @@
 /*   By: amsaleh <amsaleh@student.42amman.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 02:57:49 by amsaleh           #+#    #+#             */
-/*   Updated: 2025/07/19 03:17:08 by amsaleh          ###   ########.fr       */
+/*   Updated: 2025/07/19 16:56:36 by amsaleh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ int	real_tests_sigsegv_test(void)
 {
 	if (ft_strlen(0))
 		return (0);
-	return (-1);
+	else
+		return (-1);
 }

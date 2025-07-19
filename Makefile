@@ -22,7 +22,12 @@ LIBUNIT_OBJS = ft_strlen_00_launcher.o \
 	real_tests_05_sigfpe_test.o \
 	real_tests_06_sigill_test.o \
 	real_tests_07_sigabrt_test.o \
-	real_tests_08_sigpipe_test.o
+	real_tests_08_sigpipe_test.o \
+	ft_split_00_launcher.o \
+	ft_split_01_basic_test.o \
+	ft_split_02_empty_test.o \
+	ft_split_03_delimiters_test.o \
+	ft_split_04_delimiters_space_test.o
 LIBUNIT_OBJS := $(addprefix objs/, $(LIBUNIT_OBJS))
 LIBUNIT_OBJS += $(LIBUNIT_CORE_OBJS)
 LIBUNIT = libunit.a
@@ -32,6 +37,8 @@ LIBFT = ./libft/libft.a
 
 all: $(LIBFT)
 	$(MAKE) -C ./tests/ft_strlen
+	$(MAKE) -C ./tests/ft_split
+	$(MAKE) -C ./tests/real-tests
 	$(MAKE) $(LIBUNIT)
 
 $(LIBFT):
@@ -42,6 +49,7 @@ $(LIBUNIT): $(LIBUNIT_FINGERPRINT) $(LIBUNIT_CORE_OBJS)
 
 test:
 	$(MAKE) -C ./tests/ft_strlen
+	$(MAKE) -C ./tests/ft_split
 	$(MAKE) -C ./tests/real-tests
 	$(MAKE) $(LIBUNIT)
 	$(MAKE) $(TESTER)
@@ -62,4 +70,6 @@ fclean: clean
 	rm -f $(LIBUNIT)
 	rm -f $(TESTER)
 
-.PHONY: all test clean fclean
+re: fclean all
+
+.PHONY: all test clean fclean re
